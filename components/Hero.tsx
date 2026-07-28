@@ -3,18 +3,18 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Briefcase, FileCode2, MapPin, ShieldCheck, Sparkles, Code2 } from "lucide-react";
+import { Briefcase, FileCode2, MapPin, ShieldCheck, Code2, Sparkles } from "lucide-react";
 import { personalDetails } from "@/data/portfolioData";
 
 export default function Hero() {
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-      {/* Background Glow Elements */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-blue-500/10 dark:bg-blue-500/15 blur-[120px] rounded-full pointer-events-none -z-10" />
+      {/* Ambient Background Radial Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-blue-500/10 dark:bg-blue-500/15 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Main Hero Content */}
+          {/* Main Hero Text Content */}
           <div className="lg:col-span-7">
             {/* Status Badge */}
             <motion.div
@@ -56,7 +56,7 @@ export default function Hero() {
               Hi, I&apos;m <strong className="text-[var(--text-primary)] font-semibold">{personalDetails.name}</strong>. A Senior Full Stack Engineer with <strong>{personalDetails.experienceYears} years</strong> of experience building high-throughput backend APIs (ASP.NET Core, C#, SQL Server) and modern web applications (Angular, React, Vue).
             </motion.p>
 
-            {/* Skill Badges */}
+            {/* Key Skill Badges */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export default function Hero() {
               ))}
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* Call to Action Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -97,65 +97,74 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Seamless Cutout Portrait (No Box Container) */}
+          {/* Premium Seamless Cutout Portrait */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 flex justify-center items-center relative"
+            className="lg:col-span-5 flex justify-center items-center relative pt-6"
           >
-            <div className="relative w-full max-w-md flex items-center justify-center">
-              {/* Soft Ambient Radial Glow Behind Cutout */}
-              <div className="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-blue-500/25 via-indigo-500/20 to-sky-400/25 blur-3xl pointer-events-none -z-10" />
+            <div className="relative w-full max-w-sm flex items-center justify-center">
+              {/* Soft Backdrop Glow Halo */}
+              <div className="absolute w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-tr from-blue-500/20 via-indigo-500/20 to-sky-400/20 blur-3xl pointer-events-none -z-10" />
+              
+              {/* Decorative Subtle Orbit Ring */}
+              <div className="absolute w-[290px] h-[290px] sm:w-[340px] sm:h-[340px] rounded-full border border-blue-500/15 dark:border-blue-400/10 pointer-events-none -z-10" />
 
-              {/* Transparent Portrait Cutout */}
-              <div className="relative z-10">
+              {/* Transparent Portrait Cutout with Bottom Gradient Fade Mask */}
+              <div
+                className="relative z-10 w-full flex justify-center"
+                style={{
+                  WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 98%)",
+                  maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 98%)",
+                }}
+              >
                 <Image
                   src="/Mayur Utekar.png"
                   alt="Mayur Rajendra Utekar - Senior Full Stack Engineer"
-                  width={440}
-                  height={540}
+                  width={460}
+                  height={560}
                   priority
-                  className="object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500 max-h-[460px] w-auto"
+                  className="object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500 h-[480px] sm:h-[520px] w-auto"
                 />
               </div>
 
-              {/* Floating Badge - Top Right */}
+              {/* Floating Glass Badge - Top Right */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute top-4 -right-2 sm:right-2 z-20 glass-header px-4 py-2 rounded-2xl border border-[var(--border-color)] shadow-xl flex items-center gap-2.5"
+                className="absolute top-6 -right-3 sm:-right-6 z-20 glass-header px-4 py-2.5 rounded-2xl border border-[var(--border-color)] shadow-xl flex items-center gap-3 backdrop-blur-md"
               >
-                <div className="p-2 rounded-xl bg-blue-500 text-white shadow-md shadow-blue-500/30">
+                <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-md shadow-blue-500/30">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-[var(--text-primary)] block leading-tight">
+                  <span className="text-xs font-extrabold text-[var(--text-primary)] block leading-tight">
                     8+ Years
                   </span>
-                  <span className="text-[10px] text-[var(--text-secondary)] block">
+                  <span className="text-[10px] text-[var(--text-secondary)] font-medium block">
                     Enterprise Exp.
                   </span>
                 </div>
               </motion.div>
 
-              {/* Floating Badge - Bottom Left */}
+              {/* Floating Glass Badge - Bottom Left */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="absolute bottom-6 -left-2 sm:left-2 z-20 glass-header px-4 py-2.5 rounded-2xl border border-[var(--border-color)] shadow-xl flex items-center gap-2.5"
+                className="absolute bottom-12 -left-3 sm:-left-6 z-20 glass-header px-4 py-2.5 rounded-2xl border border-[var(--border-color)] shadow-xl flex items-center gap-3 backdrop-blur-md"
               >
-                <div className="p-2 rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-500/30">
+                <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 text-white shadow-md shadow-indigo-500/30">
                   <Code2 className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-[var(--text-primary)] block leading-tight">
+                  <span className="text-xs font-extrabold text-[var(--text-primary)] block leading-tight">
                     Full Stack Lead
                   </span>
-                  <span className="text-[10px] text-[var(--text-secondary)] block">
-                    ASP.NET & SQL
+                  <span className="text-[10px] text-[var(--text-secondary)] font-medium block">
+                    ASP.NET Core & SQL
                   </span>
                 </div>
               </motion.div>
