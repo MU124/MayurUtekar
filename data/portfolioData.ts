@@ -31,7 +31,7 @@ export const personalDetails = {
   location: "Mumbai, Maharashtra, India",
   email: "mayurutekar124@gmail.com",
   github: "https://github.com/MU124",
-  linkedin: "https://linkedin.com/in/mayurutekar",
+  linkedin: "https://www.linkedin.com/in/mayur-utekar-887482131",
   about:
     "Senior Full Stack Engineer with over 8 years of experience delivering robust enterprise software solutions from concept to production. Specialized in ASP.NET Core backend architecture, modern web frontends (Angular, React, Vue), high-performance SQL database optimization, and cross-functional team leadership.",
   summaryPoints: [

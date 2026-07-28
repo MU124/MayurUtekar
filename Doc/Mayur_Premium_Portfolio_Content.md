@@ -262,6 +262,6 @@ Digital Automation Enterprises
 
 **Email:** mayurutekar124@gmail.com
 
-**LinkedIn:** *(Add your profile URL)*
+**LinkedIn:** https://www.linkedin.com/in/mayur-utekar-887482131
 
-**GitHub:** *(Add your profile URL)*
+**GitHub:** https://github.com/MU124
