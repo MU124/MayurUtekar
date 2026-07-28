@@ -1,0 +1,112 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2857 >>
+stream
+BT
+/F1 16 Tf
+50 750 Td
+(MAYUR RAJENDRA UTEKAR) Tj
+0 -20 Td
+/F2 12 Tf
+(Senior Full Stack Engineer & Team Lead) Tj
+0 -16 Td
+/F2 9 Tf
+(Mumbai, Maharashtra, India | mayurutekar124@gmail.com | github.com/MU124 | linkedin.com/in/mayur-utekar-887482131) Tj
+0 -15 Td
+/F1 10 Tf
+(----------------------------------------------------------------------------------------------------) Tj
+0 -13 Td
+/F1 11 Tf
+(PROFESSIONAL PROFILE SUMMARY) Tj
+0 -14 Td
+/F2 9.5 Tf
+(Senior Full Stack Engineer with over 8 years of experience delivering robust enterprise software) Tj
+0 -13 Td
+(solutions from concept to production. Specialized in ASP.NET Core backend architecture, modern web) Tj
+0 -13 Td
+(frontends \(Angular, React, Vue\), high-performance SQL database optimization, and cross-functional team leadership.) Tj
+0 -13 Td
+() Tj
+0 -13 Td
+/F1 11 Tf
+(CORE SKILLS & EXPERTISE) Tj
+0 -14 Td
+/F2 9.5 Tf
+(* Backend: ASP.NET Core, C#, REST APIs, ASP.NET Web API, Node.js, SignalR Hubs, ASP.NET MVC) Tj
+0 -13 Td
+(* Frontend: Angular, React, TypeScript, Vue.js, JavaScript \(ES6+\), HTML5, CSS3, Tailwind CSS) Tj
+0 -13 Td
+(* Database: Microsoft SQL Server, Dapper ORM, Stored Procedures, T-SQL Query Optimization) Tj
+0 -13 Td
+(* DevOps & Tools: Git, GitHub, IIS Web Server, Jenkins CI/CD, Visual Studio, Postman, Vercel) Tj
+0 -13 Td
+() Tj
+0 -13 Td
+/F1 11 Tf
+(WORK EXPERIENCE) Tj
+0 -14 Td
+/F2 9.5 Tf
+(Senior Software Developer / Team Lead | Digital Automation Enterprises \(Jan 2018 - Present\)) Tj
+0 -13 Td
+(* Architected and built mission-critical enterprise web applications using ASP.NET Core and Angular.) Tj
+0 -13 Td
+(* Designed highly performant, secure, and scalable RESTful APIs with SignalR web sockets under <50ms latency.) Tj
+0 -13 Td
+(* Optimized complex SQL Server databases and Dapper queries, reducing response times by over 45%.) Tj
+0 -13 Td
+(* Led technical activities, conducted code reviews, and managed end-to-end IIS production deployments.) Tj
+0 -13 Td
+() Tj
+0 -13 Td
+(Application Support Engineer | Everest IT Services Pvt. Ltd. \(May 2016 - Oct 2017\)) Tj
+0 -13 Td
+(* Delivered 24/7 technical production support for client web applications and SQL database maintenance.) Tj
+0 -13 Td
+(* Maintained 99.9% uptime SLA across client production web servers and handled software hotfix deployments.) Tj
+0 -13 Td
+() Tj
+0 -13 Td
+/F1 11 Tf
+(KEY FEATURED PROJECTS) Tj
+0 -14 Td
+/F2 9.5 Tf
+(* SmartBranch Queue Management System: Enterprise queuing platform for tier-1 banks, hospitals & government.) Tj
+0 -13 Td
+(* Self Ordering System \(SOS\): QSR kiosk platform with POS kitchen dispatch and digital payment gateway.) Tj
+0 -13 Td
+(* Central Signage Server \(CSS\): Remote digital signage distribution hub for scheduling 4K media broadcasts.) Tj
+0 -13 Td
+(* Loan Management System: Financial processing platform for automated loan amortizations and auditing.) Tj
+0 -13 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000262 00000 n 
+0000000340 00000 n 
+0000000420 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+3305
+%%EOF
