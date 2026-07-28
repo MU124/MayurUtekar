@@ -84,19 +84,17 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <button
                   onClick={onClose}
-                  className="flex-1 sm:flex-none px-4 py-2.5 rounded-lg border border-[var(--border-color)] text-xs font-bold text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] transition-colors cursor-pointer"
+                  className="px-4 py-2.5 rounded-lg border border-[var(--border-color)] text-xs font-bold text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] transition-colors cursor-pointer"
                 >
-                  Close Preview
+                  Close
                 </button>
                 <a
-                  href="/Mayur_Utekar_Resume.pdf"
-                  download="Mayur_Utekar_Resume.pdf"
+                  href="/resume"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 sm:flex-none px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-xs flex items-center justify-center gap-2 transition-all hover:scale-[1.02] cursor-pointer"
+                  className="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-xs flex items-center justify-center gap-2 transition-all hover:scale-[1.02] cursor-pointer"
                 >
-                  <Download className="w-4 h-4" />
-                  Download PDF Resume
+                  <FileText className="w-4 h-4" />
+                  View Executive Resume Page
                 </a>
               </div>
             </div>
