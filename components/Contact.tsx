@@ -10,8 +10,9 @@ import {
   CheckCircle,
   Copy,
   Check,
-  MessageSquare,
-  Sparkles,
+  Briefcase,
+  Download,
+  CheckCircle2,
 } from "lucide-react";
 
 // Custom SVG for GitHub
@@ -77,7 +78,42 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Currently Open To Badges Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-10 p-5 rounded-2xl custom-card flex flex-col sm:flex-row items-center justify-between gap-4 bg-blue-50/50 dark:bg-blue-950/30 border-blue-200/60 dark:border-blue-900/40"
+        >
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-blue-600 text-white font-bold shrink-0">
+              <Briefcase className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-sm font-extrabold text-[var(--text-primary)]">
+                Currently Open To Opportunities
+              </h3>
+              <p className="text-xs text-[var(--text-secondary)]">
+                Available for Senior Software Developer & Team Lead positions
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            {personalDetails.openTo.map((item) => (
+              <span
+                key={item.type}
+                className="px-3 py-1.5 rounded-xl text-xs font-bold bg-[var(--bg-card)] text-[var(--brand-primary)] border border-[var(--border-color)] shadow-2xs flex items-center gap-1.5"
+              >
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                {item.type}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Contact Details Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -88,7 +124,7 @@ export default function Contact() {
           >
             <div>
               <h3 className="text-xl font-bold text-[var(--text-primary)]">
-                Direct Contact
+                Direct Contact & Socials
               </h3>
               <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1">
                 Reach out directly via email or connect through professional networks.
@@ -143,10 +179,10 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Prominent Social Networks */}
+            {/* Social Links & Resume Download */}
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] block mb-3">
-                Connect & Social Profiles
+                Professional Profiles
               </span>
               <div className="flex items-center gap-3">
                 <a
@@ -171,7 +207,7 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Interactive Streamlined Form */}
+          {/* Interactive Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}

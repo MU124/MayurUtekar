@@ -16,6 +16,9 @@ export interface ProjectItem {
   statusBadge: string;
   shortDescription: string;
   fullDescription: string;
+  businessProblem: string;
+  solution: string;
+  architectureDetails: string;
   category: "Enterprise" | "Web App" | "System Architecture";
   techStack: string[];
   highlights: string[];
@@ -25,6 +28,22 @@ export interface ProjectItem {
 export interface SkillCategory {
   title: string;
   skills: { name: string; level?: string; icon?: string }[];
+}
+
+export interface IndustryItem {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  highlight: string;
+}
+
+export interface ProcessStep {
+  step: string;
+  title: string;
+  description: string;
+  icon: string;
+  deliverables: string[];
 }
 
 export const personalDetails = {
@@ -47,25 +66,114 @@ export const personalDetails = {
   ],
   stats: [
     { label: "Years Experience", value: "8+", targetNumber: 8, suffix: "+" },
-    { label: "Enterprise Projects", value: "7+", targetNumber: 7, suffix: "+" },
-    { label: "Core Technologies", value: "20+", targetNumber: 20, suffix: "+" },
-    { label: "Industries Served", value: "5+", targetNumber: 5, suffix: "+" },
+    { label: "Enterprise Modules", value: "30+", targetNumber: 30, suffix: "+" },
+    { label: "Production Apps", value: "10+", targetNumber: 10, suffix: "+" },
+    { label: "End-to-End SDLC", value: "100%", targetNumber: 100, suffix: "%" },
   ],
-  industries: [
-    { name: "Banking & Finance", icon: "Landmark" },
-    { name: "Government & Public Sector", icon: "Building2" },
-    { name: "Retail & E-Commerce", icon: "ShoppingCart" },
-    { name: "Healthcare & Hospitality", icon: "Hospital" },
-    { name: "Digital Signage & Media", icon: "Tv" },
+  openTo: [
+    { type: "Full-Time Roles", badge: "Primary Focus" },
+    { type: "Remote Work", badge: "Global" },
+    { type: "Hybrid (Mumbai)", badge: "On-Site" },
+    { type: "Contract & Consulting", badge: "Advisory" },
   ],
 };
 
+export const industriesData: IndustryItem[] = [
+  {
+    id: "banking",
+    name: "Banking & Financial Services",
+    description: "High-concurrency Queue & Branch systems, Loan Management applications, and secure transaction workflows.",
+    icon: "Landmark",
+    highlight: "Tier-1 Banking Compliance",
+  },
+  {
+    id: "healthcare",
+    name: "Healthcare & Patient Care",
+    description: "Patient reception management, automated counter dispatch, and multi-service center token routing.",
+    icon: "Hospital",
+    highlight: "Real-time Counter Sync",
+  },
+  {
+    id: "government",
+    name: "Government & Public Sector",
+    description: "Citizen service queue platforms, public counter operations, and audit-compliant reporting systems.",
+    icon: "Building2",
+    highlight: "High Availability SLA",
+  },
+  {
+    id: "retail",
+    name: "Retail & E-Commerce",
+    description: "Full-stack online store platforms, product management, shopping carts, and payment integrations.",
+    icon: "ShoppingCart",
+    highlight: "Multi-Currency Checkout",
+  },
+  {
+    id: "digital-signage",
+    name: "Digital Signage & Media",
+    description: "Centralized media scheduling, remote display player management, and live multimedia broadcasting.",
+    icon: "Tv",
+    highlight: "4K Content Broadcast",
+  },
+  {
+    id: "restaurant",
+    name: "Restaurant & QSR Solutions",
+    description: "Self-service ordering kiosks, menu administration, kitchen display system (KDS) synchronization.",
+    icon: "Utensils",
+    highlight: "Kiosk & Kitchen Dispatch",
+  },
+];
+
+export const processWorkflow: ProcessStep[] = [
+  {
+    step: "01",
+    title: "Requirements Analysis",
+    description: "Collaborating with stakeholders, clients, and domain experts to decompose complex business needs into clear technical specifications.",
+    icon: "FileText",
+    deliverables: ["User Stories", "Functional Specs", "API Contracts"],
+  },
+  {
+    step: "02",
+    title: "System Architecture",
+    description: "Designing scalable backend microservices/monoliths, database schemas, and RESTful web API endpoints built for high throughput.",
+    icon: "Cpu",
+    deliverables: ["ER Diagrams", "API Schemas", "DB Indexing Strategy"],
+  },
+  {
+    step: "03",
+    title: "Agile Development",
+    description: "Writing clean, maintainable C# / ASP.NET Core backend code and responsive Angular / React web interfaces following SOLID principles.",
+    icon: "Code2",
+    deliverables: ["Modular Backend APIs", "Reactive UI Components", "Unit Tests"],
+  },
+  {
+    step: "04",
+    title: "Quality & Optimization",
+    description: "Executing database query optimization, Dapper refactoring, code reviews, security audits, and load testing.",
+    icon: "ShieldCheck",
+    deliverables: ["SQL Index Tuning", "Code Reviews", "Security Verification"],
+  },
+  {
+    step: "05",
+    title: "Production Deployment",
+    description: "Deploying to live production servers (IIS / Vercel), configuring CI/CD pipelines (Jenkins), and managing release rollouts.",
+    icon: "Rocket",
+    deliverables: ["IIS Web Server Setup", "Build Automation", "Live Monitoring"],
+  },
+  {
+    step: "06",
+    title: "Support & Evolution",
+    description: "Providing 24/7 technical production support, monitoring live performance metrics, and iteratively building feature enhancements.",
+    icon: "Wrench",
+    deliverables: ["SLA Maintenance", "Hotfix Patching", "Feature Scaling"],
+  },
+];
+
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Backend & Architecture",
+    title: "Backend",
     skills: [
       { name: "ASP.NET Core" },
-      { name: "C#" },
+      { name: "C# / .NET" },
       { name: "ASP.NET Web API" },
       { name: "ASP.NET MVC" },
       { name: "Node.js" },
@@ -74,7 +182,7 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Frontend & UI",
+    title: "Frontend",
     skills: [
       { name: "Angular" },
       { name: "React" },
@@ -87,7 +195,7 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Database & Storage",
+    title: "Database",
     skills: [
       { name: "Microsoft SQL Server" },
       { name: "MySQL" },
@@ -98,7 +206,7 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Tools & DevOps",
+    title: "DevOps & Tools",
     skills: [
       { name: "Git / GitHub" },
       { name: "Jenkins CI/CD" },
@@ -106,7 +214,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Visual Studio" },
       { name: "Postman" },
       { name: "PM2" },
-      { name: "React Native" },
+      { name: "Vercel" },
     ],
   },
 ];
@@ -162,12 +270,18 @@ export const projectsData: ProjectItem[] = [
     shortDescription:
       "Enterprise queue management platform used by top banks, hospitals, telecom providers, and government organizations.",
     fullDescription:
-      "SmartBranch is a high-availability enterprise queuing platform that orchestrates real-time token generation, counter management, waiting area visual displays, and executive analytics. Integrates SignalR for instantaneous live counter update broadcasts.",
+      "SmartBranch is a high-availability enterprise queuing platform that orchestrates real-time token generation, counter management, waiting area visual displays, and executive analytics.",
+    businessProblem:
+      "High-traffic banking branches and hospital centers suffered long customer waiting times, inefficient counter dispatching, and lack of real-time operational visibility.",
+    solution:
+      "Architected a centralized ASP.NET Core backend with SignalR web sockets to broadcast real-time token events to counter terminals and LED/TV waiting area displays instantaneously.",
+    architectureDetails:
+      "ASP.NET Core REST APIs, SignalR Hubs, Angular 15 Frontend, SQL Server with Dapper ORM for high-concurrency token audit logging.",
     category: "Enterprise",
     techStack: ["ASP.NET Core", "Angular", "SQL Server", "SignalR", "Dapper"],
     highlights: [
-      "Deployed in multi-branch banking and hospital infrastructure",
-      "Real-time counter updates via SignalR web sockets",
+      "Deployed in multi-branch banking and hospital infrastructure across India",
+      "Real-time counter updates via SignalR web sockets under <50ms latency",
       "High throughput transaction logging with Dapper ORM",
     ],
     iconName: "Users",
@@ -180,12 +294,18 @@ export const projectsData: ProjectItem[] = [
     shortDescription:
       "Interactive restaurant self-ordering kiosk & mobile platform with automated kitchen dispatch and digital payments.",
     fullDescription:
-      "Comprehensive QSR restaurant self-service ordering platform featuring encrypted user authentication, dynamic menu management, real-time kitchen order dispatch, payment gateway integrations, and management analytics.",
+      "Comprehensive QSR restaurant self-service ordering platform featuring encrypted user authentication, dynamic menu management, real-time kitchen order dispatch, and payment gateway integrations.",
+    businessProblem:
+      "Quick Service Restaurants faced high cashier labor costs, order entry bottlenecks during peak hours, and delayed kitchen order processing.",
+    solution:
+      "Built a self-ordering kiosk application with custom multi-touch UI, automated POS kitchen ticket printing, and integrated contactless digital payment gateways.",
+    architectureDetails:
+      "ASP.NET Core Web API, Angular Kiosk Client, SQL Server, Encrypted Payment Gateway Integration.",
     category: "Web App",
     techStack: ["ASP.NET Core API", "Angular", "SQL Server", "REST API"],
     highlights: [
-      "Interactive multi-touch menu UX with custom options",
-      "Integrated secure payment gateways & receipt printing",
+      "Interactive multi-touch menu UX with custom combo options",
+      "Integrated secure payment gateways & automatic receipt printing",
       "Automated kitchen display system (KDS) synchronization",
     ],
     iconName: "Utensils",
@@ -198,12 +318,18 @@ export const projectsData: ProjectItem[] = [
     shortDescription:
       "Enterprise digital signage manager for scheduling, distributing, and monitoring multimedia content across remote displays.",
     fullDescription:
-      "Centralized media distribution hub enabling remote administration of digital signage players across retail chains and corporate offices. Features automated media scheduling, layout design, and display health monitoring.",
+      "Centralized media distribution hub enabling remote administration of digital signage players across retail chains and corporate offices.",
+    businessProblem:
+      "Enterprise retail chains lacked a unified platform to remotely schedule and update marketing media across hundreds of scattered screens.",
+    solution:
+      "Engineered a central distribution server to schedule media playlists, stream 4K content, and monitor player node heartbeats automatically.",
+    architectureDetails:
+      "ASP.NET Web API, C# Windows Services, SQL Server, IIS Media Hub.",
     category: "System Architecture",
     techStack: ["ASP.NET", "SQL Server", "C#", "IIS"],
     highlights: [
       "Scheduled multimedia playlist broadcasting",
-      "Real-time display node heartbeat monitoring",
+      "Real-time display node heartbeat monitoring & automated alerts",
       "Role-based media approval workflows",
     ],
     iconName: "Monitor",
@@ -216,13 +342,19 @@ export const projectsData: ProjectItem[] = [
     shortDescription:
       "Financial loan processing system handling applicant workflows, repayment schedules, interest calculation, and reports.",
     fullDescription:
-      "Comprehensive lending application designed for financial institutions to manage loan lifecycles from application verification to disbursement, installment tracking, penalty rules, and regulatory audit reports.",
+      "Comprehensive lending application designed for financial institutions to manage loan lifecycles from application verification to disbursement, installment tracking, and regulatory audit reports.",
+    businessProblem:
+      "Manual loan processing led to mathematical calculation errors, delayed approval workflows, and compliance reporting oversights.",
+    solution:
+      "Automated amortization schedule generators, interest calculation engines, and granular approval permission controls.",
+    architectureDetails:
+      "ASP.NET C# Backend, SQL Server Stored Procedures, T-SQL Audit Logging.",
     category: "Enterprise",
     techStack: ["ASP.NET", "SQL Server", "Stored Procedures", "C#"],
     highlights: [
-      "Automated amortization schedule calculation",
-      "Granular permission controls for loan officers",
-      "Comprehensive audit trail & reporting tools",
+      "Automated amortization schedule & penalty calculation engine",
+      "Granular permission controls for loan officers and auditors",
+      "Comprehensive audit trail & regulatory reporting tools",
     ],
     iconName: "CreditCard",
   },
@@ -235,10 +367,16 @@ export const projectsData: ProjectItem[] = [
       "Scalable e-commerce platform with product management, shopping cart, payment processing, and order lifecycle tracking.",
     fullDescription:
       "Full-featured online marketplace enabling merchants to publish catalogs, process customer orders, accept credit card/UPI payments, and track fulfillment in real-time.",
+    businessProblem:
+      "Local merchants needed a robust e-commerce web platform capable of handling high product catalog search traffic and secure checkout.",
+    solution:
+      "Designed a responsive Angular storefront integrated with ASP.NET Core APIs and optimized SQL product search indexing.",
+    architectureDetails:
+      "ASP.NET Core REST API, Angular Frontend, SQL Server Full-Text Indexing.",
     category: "Web App",
     techStack: ["ASP.NET Core", "Angular", "SQL Server", "REST API"],
     highlights: [
-      "Optimized product search & filtering",
+      "Optimized product search & catalog filtering",
       "Secure cart & multi-currency payment checkout",
       "Merchant order management dashboard",
     ],
@@ -253,6 +391,12 @@ export const projectsData: ProjectItem[] = [
       "Multi-service center reception & visitor management platform with automated token routing.",
     fullDescription:
       "Enterprise visitor check-in system that streamlines customer reception, desk routing, appointments, and token printing for high-traffic customer care centers.",
+    businessProblem:
+      "Unorganized visitor registration resulted in long reception queues and poor counter utilization.",
+    solution:
+      "Created a visitor check-in application with dynamic desk routing and automated token printing.",
+    architectureDetails:
+      "ASP.NET Core, React Frontend, SQL Server Database.",
     category: "Enterprise",
     techStack: ["ASP.NET Core", "React", "SQL Server"],
     highlights: [
@@ -269,7 +413,13 @@ export const projectsData: ProjectItem[] = [
     shortDescription:
       "Enterprise digital signage distribution and remote display support framework.",
     fullDescription:
-      "Hardware-integrated signage control module used to broadcast dynamic corporate announcements, live news feeds, and operational metrics on high-definition displays.",
+      "Hardware-integrated signage control module used to broadcast dynamic corporate announcements, live news feeds, and operational metrics.",
+    businessProblem:
+      "Displays experienced video playback interruptions when network connectivity fluctuated.",
+    solution:
+      "Implemented offline playback caching mechanisms and fallback media playlist rules.",
+    architectureDetails:
+      "ASP.NET Backend, C# Media Player Engine, SQL Server Storage.",
     category: "System Architecture",
     techStack: ["ASP.NET", "SQL Server", "C#"],
     highlights: [

@@ -14,8 +14,9 @@ import {
   ShoppingCart,
   Hospital,
   Tv,
+  Utensils,
 } from "lucide-react";
-import { personalDetails } from "@/data/portfolioData";
+import { personalDetails, industriesData } from "@/data/portfolioData";
 
 export default function About() {
   const whyHireMe = [
@@ -53,13 +54,15 @@ export default function About() {
         return <Hospital className="w-4 h-4 text-rose-500" />;
       case "Tv":
         return <Tv className="w-4 h-4 text-amber-500" />;
+      case "Utensils":
+        return <Utensils className="w-4 h-4 text-indigo-500" />;
       default:
         return <Award className="w-4 h-4 text-blue-500" />;
     }
   };
 
   return (
-    <section id="about" className="py-20 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
+    <section id="about" className="py-20 border-b border-[var(--border-color)]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--brand-primary)]">
@@ -81,9 +84,9 @@ export default function About() {
           <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider mr-2">
             Domains Served:
           </span>
-          {personalDetails.industries.map((ind) => (
+          {industriesData.map((ind) => (
             <div
-              key={ind.name}
+              key={ind.id}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-bold text-[var(--text-primary)] shadow-2xs"
             >
               {getIndustryIcon(ind.icon)}
