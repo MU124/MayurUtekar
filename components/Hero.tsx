@@ -3,86 +3,73 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Briefcase, FileCode2, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { personalDetails } from "@/data/portfolioData";
 import StatCounter from "./StatCounter";
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-      {/* Background Grid Pattern & Radial Lighting */}
-      <div className="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.04] dark:opacity-[0.07] pointer-events-none -z-20" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[360px] bg-blue-500/10 dark:bg-blue-500/15 blur-[130px] rounded-full pointer-events-none -z-10" />
+    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+      {/* Background Soft Lighting */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[360px] bg-blue-500/10 dark:bg-blue-500/15 blur-[140px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Hero Content */}
           <div className="lg:col-span-7">
-            {/* Status & Name Banner */}
+            {/* Greeting */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-wrap items-center gap-3 mb-6"
+              transition={{ duration: 0.4 }}
+              className="text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 tracking-wide mb-1.5 block"
             >
-              <span className="text-xl sm:text-2xl font-black text-[var(--brand-primary)] tracking-wide">
-                MAYUR UTEKAR
-              </span>
-              <span className="text-slate-300 dark:text-slate-700 font-light">|</span>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-900/60 bg-blue-50/80 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 text-xs font-semibold">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                Senior Full Stack Engineer & Lead
-                <span className="mx-0.5">•</span>
-                <MapPin className="w-3.5 h-3.5" /> Mumbai
-              </div>
+              Hi, I'm
             </motion.div>
 
-            {/* Strategic Recommended Headline */}
+            {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[var(--text-primary)] leading-[1.12]"
+              className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[var(--text-primary)] leading-tight"
             >
-              Building Enterprise <br className="hidden sm:inline" />
-              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
-                Software That Solves
-              </span>{" "}
-              Real Business Problems.
+              Mayur <span className="text-blue-600 dark:text-blue-500">Utekar</span>
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Subtitle Role */}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="mt-2 text-xl sm:text-2xl font-bold text-slate-700 dark:text-slate-300"
+            >
+              Senior Full Stack Engineer
+            </motion.h2>
+
+            {/* Value Proposition Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-6 text-lg sm:text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl"
+              className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-xl"
             >
-              Over <strong>{personalDetails.experienceYears} years</strong> of experience delivering high-concurrency backend services, database optimizations, and responsive web frontends for banking, government, and retail.
+              I build scalable enterprise software and web solutions that solve real business problems and deliver value.
             </motion.p>
 
-            {/* Core Tech Sub-tags */}
+            {/* Core Tech Stack Pills */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-[var(--text-secondary)]"
+              className="mt-6 flex flex-wrap gap-2"
             >
-              {[
-                { name: "ASP.NET Core", color: "border-purple-200 dark:border-purple-900/40 text-purple-600 dark:text-purple-400" },
-                { name: "Angular", color: "border-red-200 dark:border-red-900/40 text-red-600 dark:text-red-400" },
-                { name: "React", color: "border-cyan-200 dark:border-cyan-900/40 text-cyan-600 dark:text-cyan-400" },
-                { name: "Node.js", color: "border-emerald-200 dark:border-emerald-900/40 text-emerald-600 dark:text-emerald-400" },
-                { name: "SQL Server", color: "border-blue-200 dark:border-blue-900/40 text-blue-600 dark:text-blue-400" },
-              ].map((tag) => (
+              {["ASP.NET Core", "Angular", "React", "SQL Server", "Node.js"].map((tech) => (
                 <span
-                  key={tag.name}
-                  className={`px-3.5 py-1.5 rounded-lg bg-[var(--bg-secondary)] border ${tag.color} font-extrabold shadow-2xs`}
+                  key={tech}
+                  className="px-3.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 text-xs font-semibold"
                 >
-                  {tag.name}
+                  {tech}
                 </span>
               ))}
             </motion.div>
@@ -96,38 +83,38 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-white font-semibold shadow-lg shadow-blue-600/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
-                <FileCode2 className="w-5 h-5" />
-                View Enterprise Projects
+                View My Work
+                <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="#experience"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-primary)] font-semibold hover:border-blue-500 hover:text-blue-600 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-[var(--bg-card)] text-[var(--text-primary)] font-bold text-sm hover:border-blue-600 hover:text-blue-600 shadow-xs transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
-                <Briefcase className="w-5 h-5" />
-                Professional History
+                Contact Me
+                <ArrowRight className="w-4 h-4" />
               </a>
             </motion.div>
           </div>
 
-          {/* Right Visual: Clean Portrait Cutout with Glow */}
+          {/* Right Visual: Portrait Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 flex justify-center items-center relative pt-6"
+            className="lg:col-span-5 flex justify-center items-center relative"
           >
             <div className="relative w-full max-w-sm flex flex-col items-center justify-center">
               {/* Backdrop Glow Halo */}
-              <div className="absolute w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] rounded-full bg-gradient-to-tr from-blue-500/20 via-indigo-500/20 to-sky-400/20 blur-3xl pointer-events-none -z-10" />
+              <div className="absolute w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] rounded-full bg-gradient-to-tr from-blue-500/15 via-indigo-500/15 to-sky-400/15 blur-3xl pointer-events-none -z-10" />
 
               {/* Transparent Portrait Cutout with Bottom Mask */}
               <div
-                className="relative z-10 w-full flex justify-center mt-4"
+                className="relative z-10 w-full flex justify-center mt-2"
                 style={{
-                  WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 78%, rgba(0,0,0,0) 98%)",
-                  maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 78%, rgba(0,0,0,0) 98%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 98%)",
+                  maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 98%)",
                 }}
               >
                 <Image
@@ -136,14 +123,14 @@ export default function Hero() {
                   width={460}
                   height={560}
                   priority
-                  className="object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500 h-[480px] sm:h-[520px] w-auto"
+                  className="object-contain drop-shadow-xl hover:scale-[1.02] transition-transform duration-500 h-[440px] sm:h-[480px] w-auto"
                 />
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Updated Meaningful Stats Grid */}
+        {/* Meaningful Stats Grid */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

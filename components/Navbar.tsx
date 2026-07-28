@@ -2,12 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { useTheme } from "@/app/providers";
-import { Sun, Moon, Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { personalDetails } from "@/data/portfolioData";
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("about");
@@ -52,10 +50,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
         scrolled
-          ? "glass-header border-b border-[var(--border-color)] py-3.5 shadow-sm"
-          : "bg-transparent py-5"
+          ? "bg-[var(--bg-primary)] border-[var(--border-color)] py-3.5 shadow-xs"
+          : "bg-transparent border-transparent py-5 shadow-none"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -64,7 +62,7 @@ export default function Navbar() {
           href="#"
           className="flex items-center gap-3 group focus:outline-none rounded-lg p-1"
         >
-          <div className="relative w-10 h-10 rounded-xl overflow-hidden ring-2 ring-blue-500/40 group-hover:scale-105 transition-transform shrink-0">
+          <div className="relative w-10 h-10 rounded-xl overflow-hidden group-hover:scale-105 transition-transform shrink-0">
             <Image
               src="/mayur.png"
               alt="Mayur Utekar Profile Avatar"
@@ -103,21 +101,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Actions (Theme Toggle & CTA) */}
+        {/* Actions (CTA) */}
         <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="p-2.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-primary)] hover:border-blue-500 transition-colors cursor-pointer"
-            title={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
-          >
-            {theme === "light" ? (
-              <Moon className="w-4.5 h-4.5 text-slate-700" />
-            ) : (
-              <Sun className="w-4.5 h-4.5 text-amber-400" />
-            )}
-          </button>
-
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-4.5 py-2.5 text-sm font-semibold rounded-xl bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-white shadow-md shadow-blue-600/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
@@ -129,13 +114,6 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="p-2 rounded-lg border border-[var(--border-color)] text-[var(--text-primary)]"
-          >
-            {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-          </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"

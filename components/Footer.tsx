@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[var(--border-color)]">
           {/* Brand Logo & Name */}
           <div className="flex items-center gap-3">
-            <div className="relative w-9 h-9 rounded-xl overflow-hidden ring-2 ring-blue-500/40 shrink-0">
+            <div className="relative w-9 h-9 rounded-xl overflow-hidden shrink-0">
               <Image
                 src="/mayur.png"
                 alt="Mayur Utekar Profile Avatar"
