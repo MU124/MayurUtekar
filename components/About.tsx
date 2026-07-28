@@ -2,7 +2,19 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, Award, Users2, Database, ShieldCheck, Cpu } from "lucide-react";
+import {
+  CheckCircle2,
+  Award,
+  Users2,
+  Database,
+  ShieldCheck,
+  Cpu,
+  Landmark,
+  Building2,
+  ShoppingCart,
+  Hospital,
+  Tv,
+} from "lucide-react";
 import { personalDetails } from "@/data/portfolioData";
 
 export default function About() {
@@ -29,6 +41,23 @@ export default function About() {
     },
   ];
 
+  const getIndustryIcon = (iconName: string) => {
+    switch (iconName) {
+      case "Landmark":
+        return <Landmark className="w-4 h-4 text-blue-500" />;
+      case "Building2":
+        return <Building2 className="w-4 h-4 text-purple-500" />;
+      case "ShoppingCart":
+        return <ShoppingCart className="w-4 h-4 text-emerald-500" />;
+      case "Hospital":
+        return <Hospital className="w-4 h-4 text-rose-500" />;
+      case "Tv":
+        return <Tv className="w-4 h-4 text-amber-500" />;
+      default:
+        return <Award className="w-4 h-4 text-blue-500" />;
+    }
+  };
+
   return (
     <section id="about" className="py-20 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +70,29 @@ export default function About() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        {/* Industry Domain Badges Summary */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+        >
+          <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider mr-2">
+            Domains Served:
+          </span>
+          {personalDetails.industries.map((ind) => (
+            <div
+              key={ind.name}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-bold text-[var(--text-primary)] shadow-2xs"
+            >
+              {getIndustryIcon(ind.icon)}
+              {ind.name}
+            </div>
+          ))}
+        </motion.div>
+
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           {/* Detailed Biography */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -52,13 +103,13 @@ export default function About() {
           >
             <div>
               <h3 className="text-xl font-bold text-[var(--text-primary)] mb-4">
-                Professional Bio & Core Philosophy
+                Professional Bio & Engineering Focus
               </h3>
-              <p className="text-[var(--text-secondary)] leading-relaxed mb-4">
+              <p className="text-[var(--text-secondary)] leading-relaxed mb-4 text-sm sm:text-base">
                 {personalDetails.about}
               </p>
-              <p className="text-[var(--text-secondary)] leading-relaxed">
-                Over the course of my career, I have taken full ownership of large-scale applications across digital signage, queue management, loan processing, and e-commerce. I thrive in environment where clean architecture, reliable database performance, and intuitive user experiences intersect.
+              <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base">
+                Over the course of my career, I have taken full ownership of large-scale applications across digital signage, queue management, loan processing, and e-commerce. I thrive in environments where clean architecture, reliable database performance, and intuitive user experiences intersect.
               </p>
             </div>
 

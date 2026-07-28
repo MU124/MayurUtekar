@@ -10,23 +10,45 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("about");
+
+  const navLinks = [
+    { label: "About", href: "#about", id: "about" },
+    { label: "Experience", href: "#experience", id: "experience" },
+    { label: "Skills", href: "#skills", id: "skills" },
+    { label: "Projects", href: "#projects", id: "projects" },
+    { label: "Timeline", href: "#timeline", id: "timeline" },
+    { label: "Contact", href: "#contact", id: "contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
-  const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "Timeline", href: "#timeline" },
-    { label: "Contact", href: "#contact" },
-  ];
+    // IntersectionObserver for scroll spy active section highlight
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    navLinks.forEach((link) => {
+      const el = document.getElementById(link.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <header
@@ -52,26 +74,33 @@ export default function Navbar() {
             />
           </div>
           <div>
-            <span className="font-bold text-base tracking-tight text-[var(--text-primary)] block leading-tight">
+            <span className="font-extrabold text-base tracking-tight text-[var(--text-primary)] block leading-tight">
               Mayur Utekar
             </span>
-            <span className="text-xs text-[var(--text-secondary)] block">
+            <span className="text-xs text-[var(--text-secondary)] block font-medium">
               Senior Full Stack Engineer
             </span>
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1.5 bg-[var(--bg-card)] border border-[var(--border-color)] px-4 py-1.5 rounded-full shadow-xs">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--brand-primary)] px-3 py-1.5 rounded-md transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+        {/* Desktop Navigation Links with Scroll Spy Highlight */}
+        <nav className="hidden md:flex items-center gap-1 bg-[var(--bg-card)] border border-[var(--border-color)] px-3 py-1.5 rounded-full shadow-xs">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`relative text-sm font-semibold px-3.5 py-1.5 rounded-full transition-all duration-200 ${
+                  isActive
+                    ? "text-[var(--brand-primary)] bg-blue-50 dark:bg-blue-950/60"
+                    : "text-[var(--text-secondary)] hover:text-[var(--brand-primary)]"
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Actions (Theme Toggle & CTA) */}
@@ -126,7 +155,11 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-[var(--text-primary)] hover:text-blue-600 py-2 border-b border-[var(--border-color)]/50"
+                className={`text-base font-semibold py-2 border-b border-[var(--border-color)]/50 ${
+                  activeSection === link.id
+                    ? "text-blue-600 font-bold"
+                    : "text-[var(--text-primary)]"
+                }`}
               >
                 {link.label}
               </a>

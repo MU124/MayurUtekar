@@ -6,11 +6,14 @@ export interface ExperienceItem {
   type: string;
   responsibilities: string[];
   contributions: string[];
+  techBadges: string[];
 }
 
 export interface ProjectItem {
   id: string;
   title: string;
+  roleBadge: string;
+  statusBadge: string;
   shortDescription: string;
   fullDescription: string;
   category: "Enterprise" | "Web App" | "System Architecture";
@@ -43,10 +46,17 @@ export const personalDetails = {
     "Complete SDLC ownership from requirement analysis to IIS/production deployment",
   ],
   stats: [
-    { label: "Years Experience", value: "8+" },
-    { label: "Enterprise Systems", value: "7+" },
-    { label: "Domains Served", value: "5+" },
-    { label: "Core Expertise", value: "Full Stack & SQL" },
+    { label: "Years Experience", value: "8+", targetNumber: 8, suffix: "+" },
+    { label: "Enterprise Projects", value: "7+", targetNumber: 7, suffix: "+" },
+    { label: "Core Technologies", value: "20+", targetNumber: 20, suffix: "+" },
+    { label: "Industries Served", value: "5+", targetNumber: 5, suffix: "+" },
+  ],
+  industries: [
+    { name: "Banking & Finance", icon: "Landmark" },
+    { name: "Government & Public Sector", icon: "Building2" },
+    { name: "Retail & E-Commerce", icon: "ShoppingCart" },
+    { name: "Healthcare & Hospitality", icon: "Hospital" },
+    { name: "Digital Signage & Media", icon: "Tv" },
   ],
 };
 
@@ -108,6 +118,7 @@ export const experienceData: ExperienceItem[] = [
     period: "January 2018 — Present",
     location: "Mumbai, India",
     type: "Full-Time",
+    techBadges: ["ASP.NET Core", "C#", "Angular", "SQL Server", "SignalR", "Dapper", "IIS"],
     responsibilities: [
       "Architect and build enterprise web applications using ASP.NET Core and Angular.",
       "Design highly performant, secure, and scalable RESTful APIs.",
@@ -128,6 +139,7 @@ export const experienceData: ExperienceItem[] = [
     period: "May 2016 — October 2017",
     location: "Mumbai, India",
     type: "Full-Time",
+    techBadges: ["SQL Server", "T-SQL", "IIS", "Windows Server", "C#"],
     responsibilities: [
       "Delivered 24/7 technical production support for client web applications.",
       "Investigated SQL data issues, repaired corrupted data scripts, and optimized query performance.",
@@ -145,6 +157,8 @@ export const projectsData: ProjectItem[] = [
   {
     id: "smart-branch",
     title: "SmartBranch Queue Management System",
+    roleBadge: "Full Stack Architect",
+    statusBadge: "Production Live",
     shortDescription:
       "Enterprise queue management platform used by top banks, hospitals, telecom providers, and government organizations.",
     fullDescription:
@@ -161,6 +175,8 @@ export const projectsData: ProjectItem[] = [
   {
     id: "self-ordering-system",
     title: "Self Ordering System (SOS)",
+    roleBadge: "Lead Full Stack Dev",
+    statusBadge: "Production Live",
     shortDescription:
       "Interactive restaurant self-ordering kiosk & mobile platform with automated kitchen dispatch and digital payments.",
     fullDescription:
@@ -177,6 +193,8 @@ export const projectsData: ProjectItem[] = [
   {
     id: "central-signage-server",
     title: "Central Signage Server (CSS)",
+    roleBadge: "System Architect",
+    statusBadge: "Production Live",
     shortDescription:
       "Enterprise digital signage manager for scheduling, distributing, and monitoring multimedia content across remote displays.",
     fullDescription:
@@ -193,6 +211,8 @@ export const projectsData: ProjectItem[] = [
   {
     id: "loan-management-system",
     title: "Loan Management System",
+    roleBadge: "Backend Lead",
+    statusBadge: "Production Live",
     shortDescription:
       "Financial loan processing system handling applicant workflows, repayment schedules, interest calculation, and reports.",
     fullDescription:
@@ -209,6 +229,8 @@ export const projectsData: ProjectItem[] = [
   {
     id: "my-area-online",
     title: "My Area Online E-Commerce Platform",
+    roleBadge: "Full Stack Developer",
+    statusBadge: "Production Live",
     shortDescription:
       "Scalable e-commerce platform with product management, shopping cart, payment processing, and order lifecycle tracking.",
     fullDescription:
@@ -225,6 +247,8 @@ export const projectsData: ProjectItem[] = [
   {
     id: "arm",
     title: "Advanced Reception Management (ARM)",
+    roleBadge: "Team Lead",
+    statusBadge: "Production Live",
     shortDescription:
       "Multi-service center reception & visitor management platform with automated token routing.",
     fullDescription:
@@ -240,6 +264,8 @@ export const projectsData: ProjectItem[] = [
   {
     id: "ads",
     title: "Advanced Digital Signage (ADS)",
+    roleBadge: "System Engineer",
+    statusBadge: "Production Live",
     shortDescription:
       "Enterprise digital signage distribution and remote display support framework.",
     fullDescription:
@@ -259,6 +285,7 @@ export const timelineMilestones = [
     year: "2016 — 2017",
     title: "Application Support Engineer",
     company: "Everest IT Services Pvt. Ltd.",
+    badge: "Career Entry",
     description:
       "Started professional software career managing server maintenance, client production support, and SQL database troubleshooting.",
   },
@@ -266,13 +293,15 @@ export const timelineMilestones = [
     year: "2018 — 2021",
     title: "Software Developer",
     company: "Digital Automation Enterprises",
+    badge: "Core Engineering",
     description:
       "Developed backend web APIs with ASP.NET Core and frontend web interfaces with Angular & React for banking and digital signage clients.",
   },
   {
     year: "2021 — Present",
-    title: "Senior Full Stack Engineer / Team Lead",
+    title: "Senior Software Developer / Team Lead",
     company: "Digital Automation Enterprises",
+    badge: "Leadership Milestone",
     description:
       "Promoted to Senior Team Lead. Directing full-stack architecture, database optimization, team mentorship, and mission-critical enterprise deployments.",
   },

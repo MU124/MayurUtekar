@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mayur-utekar.vercel.app/sitemap.xml

@@ -61,10 +61,7 @@ export const metadata: Metadata = {
     images: ["/mayur.png"],
   },
   icons: {
-    icon: [
-      { url: "/icon.png" },
-      { url: "/mayur.png" },
-    ],
+    icon: [{ url: "/icon.png" }, { url: "/mayur.png" }],
     shortcut: "/mayur.png",
     apple: "/apple-touch-icon.png",
   },
@@ -75,12 +72,52 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Mayur Rajendra Utekar",
+    jobTitle: "Senior Full Stack Engineer & Team Lead",
+    worksFor: {
+      "@type": "Organization",
+      name: "Digital Automation Enterprises",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Mumbai",
+      addressRegion: "Maharashtra",
+      addressCountry: "India",
+    },
+    email: "mayurutekar124@gmail.com",
+    url: "https://mayur-utekar.vercel.app",
+    sameAs: [
+      "https://www.linkedin.com/in/mayur-utekar-887482131",
+      "https://github.com/MU124",
+    ],
+    knowsAbout: [
+      "ASP.NET Core",
+      "C#",
+      "Microsoft SQL Server",
+      "Angular",
+      "React",
+      "Vue.js",
+      "RESTful Web APIs",
+      "SignalR",
+      "Enterprise Architecture",
+    ],
+  };
+
   return (
     <html
       lang="en"
       className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
         <ThemeProvider>{children}</ThemeProvider>
       </body>

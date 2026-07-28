@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { skillCategories } from "@/data/portfolioData";
-import { Server, Layout, Database, Wrench, Layers } from "lucide-react";
+import { Server, Layout, Database, Wrench, Layers, CheckCircle2 } from "lucide-react";
 
 export default function Skills() {
-  const [activeTab, setActiveTab] = useState<string>("All");
-
   const categoryIcons: Record<string, React.ReactNode> = {
     "Backend & Architecture": <Server className="w-5 h-5" />,
     "Frontend & UI": <Layout className="w-5 h-5" />,
@@ -16,7 +14,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--brand-primary)]">
@@ -39,24 +37,29 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="custom-card p-6"
+              className="custom-card p-6 hover:border-blue-500/80 transition-all hover:shadow-xl"
             >
               <div className="flex items-center gap-3 mb-5 border-b border-[var(--border-color)] pb-4">
-                <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-[var(--brand-primary)]">
+                <div className="p-3 rounded-2xl bg-blue-50 dark:bg-blue-950/60 text-[var(--brand-primary)]">
                   {categoryIcons[cat.title] || <Layers className="w-5 h-5" />}
                 </div>
-                <h3 className="text-lg font-bold text-[var(--text-primary)]">
-                  {cat.title}
-                </h3>
+                <div>
+                  <h3 className="text-lg font-extrabold text-[var(--text-primary)]">
+                    {cat.title}
+                  </h3>
+                  <span className="text-xs text-[var(--text-secondary)] font-medium">
+                    {cat.skills.length} Core Capabilities
+                  </span>
+                </div>
               </div>
 
               <div className="flex flex-wrap gap-2.5">
                 {cat.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-color)] text-sm font-medium text-[var(--text-primary)] hover:border-[var(--brand-primary)] hover:bg-blue-50/50 dark:hover:bg-blue-950/30 transition-all cursor-default"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-sm font-semibold text-[var(--text-primary)] hover:border-[var(--brand-primary)] hover:bg-blue-50/50 dark:hover:bg-blue-950/30 hover:scale-[1.03] transition-all cursor-default shadow-2xs"
                   >
-                    <span className="w-2 h-2 rounded-full bg-[var(--brand-primary)]"></span>
+                    <CheckCircle2 className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
                     {skill.name}
                   </div>
                 ))}

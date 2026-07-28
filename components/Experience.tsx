@@ -3,11 +3,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { experienceData } from "@/data/portfolioData";
-import { Briefcase, Calendar, MapPin, CheckCircle, Trophy } from "lucide-react";
+import { Briefcase, Calendar, MapPin, CheckCircle, Trophy, Building, Server } from "lucide-react";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
+    <section id="experience" className="py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--brand-primary)]">
@@ -29,38 +29,62 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="custom-card p-6 sm:p-8"
+              className="custom-card p-6 sm:p-8 hover:border-blue-500/80 transition-colors"
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--border-color)] pb-6 mb-6">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 dark:bg-blue-950/60 text-[var(--brand-primary)] text-xs font-bold mb-2">
-                    <Briefcase className="w-3.5 h-3.5" />
-                    {exp.type}
+                <div className="flex items-start gap-4">
+                  {/* Stylized Company Logo Badge */}
+                  <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-lg shadow-md shadow-blue-500/20 shrink-0 mt-1">
+                    {idx === 0 ? <Building className="w-6 h-6" /> : <Server className="w-6 h-6" />}
                   </div>
-                  <h3 className="text-2xl font-bold text-[var(--text-primary)]">
-                    {exp.role}
-                  </h3>
-                  <p className="text-lg font-semibold text-[var(--brand-primary)] mt-0.5">
-                    {exp.company}
-                  </p>
+
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 dark:bg-blue-950/60 text-[var(--brand-primary)] text-xs font-bold mb-1.5">
+                      <Briefcase className="w-3.5 h-3.5" />
+                      {exp.type}
+                    </div>
+                    <h3 className="text-2xl font-bold text-[var(--text-primary)]">
+                      {exp.role}
+                    </h3>
+                    <p className="text-lg font-semibold text-[var(--brand-primary)] mt-0.5">
+                      {exp.company}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="flex flex-wrap md:flex-col items-start md:items-end gap-2 text-sm text-[var(--text-secondary)]">
-                  <span className="inline-flex items-center gap-1.5 font-medium px-3 py-1 rounded-md bg-[var(--bg-primary)] border border-[var(--border-color)]">
+                  <span className="inline-flex items-center gap-1.5 font-medium px-3 py-1 rounded-md bg-[var(--bg-secondary)] border border-[var(--border-color)]">
                     <Calendar className="w-4 h-4 text-blue-500" />
                     {exp.period}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 font-medium px-3 py-1 rounded-md bg-[var(--bg-primary)] border border-[var(--border-color)]">
+                  <span className="inline-flex items-center gap-1.5 font-medium px-3 py-1 rounded-md bg-[var(--bg-secondary)] border border-[var(--border-color)]">
                     <MapPin className="w-4 h-4 text-emerald-500" />
                     {exp.location}
                   </span>
                 </div>
               </div>
 
+              {/* Role Technology Stack Badges */}
+              <div className="mb-6">
+                <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-2">
+                  Role Tech Stack:
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {exp.techBadges.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 rounded-lg text-xs font-semibold bg-blue-50/80 dark:bg-blue-950/50 text-[var(--brand-primary)] border border-blue-200/60 dark:border-blue-900/40"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
               {/* Responsibilities */}
               <div className="mb-6">
                 <h4 className="text-sm font-bold uppercase tracking-wider text-[var(--text-primary)] mb-3">
-                  Core Responsibilities:
+                  Key Responsibilities:
                 </h4>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {exp.responsibilities.map((resp, i) => (

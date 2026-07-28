@@ -8,13 +8,14 @@ import {
   MapPin,
   Send,
   CheckCircle,
-  FileText,
   Copy,
   Check,
+  MessageSquare,
+  Sparkles,
 } from "lucide-react";
 
 // Custom SVG for GitHub
-function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
+function GithubIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
       <path
@@ -27,7 +28,7 @@ function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
 }
 
 // Custom SVG for LinkedIn
-function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
+function LinkedinIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
       <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
@@ -69,7 +70,7 @@ export default function Contact() {
             Get In Touch
           </h2>
           <p className="mt-2 text-3xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-4xl">
-            Let&apos;s Connect & Collaborate
+            Let&apos;s Build Something Together
           </p>
           <p className="mt-3 text-base text-[var(--text-secondary)]">
             Whether you are looking to hire a Senior Full Stack Engineer, build enterprise software, or discuss software architecture.
@@ -107,7 +108,7 @@ export default function Contact() {
                     </span>
                     <a
                       href={`mailto:${personalDetails.email}`}
-                      className="text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors truncate block"
+                      className="text-sm font-bold text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors truncate block"
                     >
                       {personalDetails.email}
                     </a>
@@ -116,7 +117,7 @@ export default function Contact() {
                 <button
                   onClick={copyEmailToClipboard}
                   title="Copy email to clipboard"
-                  className="p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)] transition-colors cursor-pointer shrink-0"
+                  className="p-2.5 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)] transition-colors cursor-pointer shrink-0"
                 >
                   {copiedEmail ? (
                     <Check className="w-4 h-4 text-emerald-500" />
@@ -142,35 +143,35 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Social Links */}
+            {/* Prominent Social Networks */}
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] block mb-3">
-                Professional Networks
+                Connect & Social Profiles
               </span>
               <div className="flex items-center gap-3">
                 <a
                   href={personalDetails.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 py-3 px-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)] text-sm font-medium text-[var(--text-primary)] hover:border-blue-500 hover:text-blue-600 flex items-center justify-center gap-2 transition-colors"
+                  className="flex-1 py-3 px-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)] text-sm font-bold text-[var(--text-primary)] hover:border-blue-500 hover:text-blue-600 flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] shadow-2xs"
                 >
-                  <GithubIcon className="w-4.5 h-4.5" />
+                  <GithubIcon className="w-5 h-5" />
                   GitHub
                 </a>
                 <a
                   href={personalDetails.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 py-3 px-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)] text-sm font-medium text-[var(--text-primary)] hover:border-blue-500 hover:text-blue-600 flex items-center justify-center gap-2 transition-colors"
+                  className="flex-1 py-3 px-4 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)] text-sm font-bold text-[var(--text-primary)] hover:border-blue-500 hover:text-blue-600 flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] shadow-2xs"
                 >
-                  <LinkedinIcon className="w-4.5 h-4.5" />
+                  <LinkedinIcon className="w-5 h-5" />
                   LinkedIn
                 </a>
               </div>
             </div>
           </motion.div>
 
-          {/* Interactive Form */}
+          {/* Interactive Streamlined Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -208,7 +209,7 @@ export default function Contact() {
                       placeholder="e.g. Alex Smith"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:outline-none focus:border-blue-500 transition-colors text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:outline-none focus:border-blue-500 transition-colors text-sm"
                     />
                   </div>
 
@@ -222,7 +223,7 @@ export default function Contact() {
                       placeholder="e.g. alex@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:outline-none focus:border-blue-500 transition-colors text-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:outline-none focus:border-blue-500 transition-colors text-sm"
                     />
                   </div>
                 </div>
@@ -236,7 +237,7 @@ export default function Contact() {
                     placeholder="Project Inquiry / Job Opportunity"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:outline-none focus:border-blue-500 transition-colors text-sm"
+                    className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:outline-none focus:border-blue-500 transition-colors text-sm"
                   />
                 </div>
 
@@ -250,13 +251,13 @@ export default function Contact() {
                     placeholder="Briefly describe your project, technical requirement, or role opportunity..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:outline-none focus:border-blue-500 transition-colors text-sm resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] focus:outline-none focus:border-blue-500 transition-colors text-sm resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 px-6 rounded-xl bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-white font-semibold text-sm shadow-md shadow-blue-500/20 flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                  className="w-full py-3.5 px-6 rounded-xl bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-white font-bold text-sm shadow-md shadow-blue-500/20 flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   Send Message
