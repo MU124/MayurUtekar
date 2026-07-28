@@ -137,7 +137,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden glass-header border-b border-[var(--border-color)] px-4 pt-4 pb-6 mt-2">
+        <div className="md:hidden bg-[var(--bg-primary)] border-b border-[var(--border-color)] px-4 pt-4 pb-6 mt-2 shadow-lg">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a
@@ -153,13 +153,26 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-3 text-center px-4 py-2.5 text-sm font-semibold rounded-xl bg-blue-600 text-white"
-            >
-              Get in Touch
-            </a>
+            <div className="mt-3 flex flex-col gap-2">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setResumeModalOpen(true);
+                }}
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-primary)] hover:border-blue-500 hover:text-blue-600 transition-colors shadow-2xs cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                Resume
+              </button>
+
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center px-4 py-2.5 text-sm font-bold rounded-xl bg-blue-600 text-white shadow-md shadow-blue-600/20"
+              >
+                Get in Touch
+              </a>
+            </div>
           </nav>
         </div>
       )}
