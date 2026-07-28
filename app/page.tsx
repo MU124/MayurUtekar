@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import TechStrip from "@/components/TechStrip";
 import About from "@/components/About";
 import Industries from "@/components/Industries";
 import ProcessWorkflow from "@/components/ProcessWorkflow";
@@ -15,6 +16,7 @@ export default function Home() {
     <main className="min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
       <Navbar />
       <Hero />
+      <TechStrip />
       <About />
       <Industries />
       <ProcessWorkflow />

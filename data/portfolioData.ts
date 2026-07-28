@@ -27,7 +27,7 @@ export interface ProjectItem {
 
 export interface SkillCategory {
   title: string;
-  skills: { name: string; level?: string; icon?: string }[];
+  skills: { name: string; isPrimary?: boolean }[];
 }
 
 export interface IndustryItem {
@@ -170,51 +170,50 @@ export const processWorkflow: ProcessStep[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Backend",
+    title: "Backend & Core",
     skills: [
-      { name: "ASP.NET Core" },
-      { name: "C# / .NET" },
-      { name: "ASP.NET Web API" },
-      { name: "ASP.NET MVC" },
-      { name: "Node.js" },
-      { name: "REST APIs" },
-      { name: "SignalR" },
+      { name: "ASP.NET Core", isPrimary: true },
+      { name: "C# / .NET", isPrimary: true },
+      { name: "REST APIs", isPrimary: true },
+      { name: "ASP.NET Web API", isPrimary: true },
+      { name: "Node.js", isPrimary: false },
+      { name: "ASP.NET MVC", isPrimary: false },
+      { name: "SignalR Hubs", isPrimary: true },
     ],
   },
   {
-    title: "Frontend",
+    title: "Frontend & UI",
     skills: [
-      { name: "Angular" },
-      { name: "React" },
-      { name: "Vue.js" },
-      { name: "TypeScript" },
-      { name: "JavaScript (ES6+)" },
-      { name: "HTML5 / CSS3" },
-      { name: "Tailwind CSS" },
-      { name: "Bootstrap" },
+      { name: "Angular", isPrimary: true },
+      { name: "React", isPrimary: true },
+      { name: "TypeScript", isPrimary: true },
+      { name: "Vue.js", isPrimary: false },
+      { name: "JavaScript (ES6+)", isPrimary: true },
+      { name: "HTML5 / CSS3", isPrimary: true },
+      { name: "Tailwind CSS", isPrimary: false },
     ],
   },
   {
-    title: "Database",
+    title: "Database & Storage",
     skills: [
-      { name: "Microsoft SQL Server" },
-      { name: "MySQL" },
-      { name: "Dapper ORM" },
-      { name: "Stored Procedures" },
-      { name: "Query Optimization" },
-      { name: "Database Design" },
+      { name: "Microsoft SQL Server", isPrimary: true },
+      { name: "Dapper ORM", isPrimary: true },
+      { name: "Stored Procedures", isPrimary: true },
+      { name: "Query Optimization", isPrimary: true },
+      { name: "MySQL", isPrimary: false },
+      { name: "Database Design", isPrimary: true },
     ],
   },
   {
     title: "DevOps & Tools",
     skills: [
-      { name: "Git / GitHub" },
-      { name: "Jenkins CI/CD" },
-      { name: "IIS Server" },
-      { name: "Visual Studio" },
-      { name: "Postman" },
-      { name: "PM2" },
-      { name: "Vercel" },
+      { name: "Git / GitHub", isPrimary: true },
+      { name: "IIS Web Server", isPrimary: true },
+      { name: "Jenkins CI/CD", isPrimary: false },
+      { name: "Visual Studio", isPrimary: true },
+      { name: "Postman", isPrimary: true },
+      { name: "Vercel", isPrimary: false },
+      { name: "React Native", isPrimary: false },
     ],
   },
 ];
