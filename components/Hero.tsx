@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Briefcase, FileCode2, MapPin, ShieldCheck, Code2, Layers, Cpu, Database, Server, Terminal, Activity } from "lucide-react";
+import { Briefcase, FileCode2, MapPin } from "lucide-react";
 import { personalDetails } from "@/data/portfolioData";
 import StatCounter from "./StatCounter";
 
@@ -111,7 +111,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Visual: Combination Portrait Cutout & Code Architecture Card */}
+          {/* Right Visual: Clean Portrait Cutout with Glow */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -121,31 +121,6 @@ export default function Hero() {
             <div className="relative w-full max-w-sm flex flex-col items-center justify-center">
               {/* Backdrop Glow Halo */}
               <div className="absolute w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] rounded-full bg-gradient-to-tr from-blue-500/20 via-indigo-500/20 to-sky-400/20 blur-3xl pointer-events-none -z-10" />
-
-              {/* Enterprise Architecture Code Snippet Overlay (Top Left) */}
-              <motion.div
-                initial={{ opacity: 0, y: -15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute -top-4 -left-4 sm:-left-8 z-20 custom-card p-3 shadow-2xl bg-slate-900 text-slate-100 border border-slate-700/80 rounded-2xl text-[11px] font-mono w-52 sm:w-60 pointer-events-none"
-              >
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
-                  <div className="flex gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
-                  </div>
-                  <span className="text-[10px] text-blue-400 font-semibold flex items-center gap-1">
-                    <Terminal className="w-3 h-3" />
-                    Architecture.cs
-                  </span>
-                </div>
-                <div className="space-y-1 text-slate-300 text-[10.5px]">
-                  <div><span className="text-purple-400">public class</span> <span className="text-amber-300">EnterpriseService</span></div>
-                  <div className="pl-2"><span className="text-blue-400">await</span> _db.<span className="text-emerald-400">OptimizeQueryAsync</span>();</div>
-                  <div className="pl-2"><span className="text-purple-400">return</span> <span className="text-emerald-300">SLAStatus</span>.<span className="text-blue-400">Live</span>;</div>
-                </div>
-              </motion.div>
 
               {/* Transparent Portrait Cutout with Bottom Mask */}
               <div
@@ -164,26 +139,6 @@ export default function Hero() {
                   className="object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500 h-[480px] sm:h-[520px] w-auto"
                 />
               </div>
-
-              {/* System Throughput Metric Card Overlay (Bottom Right) */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="absolute bottom-10 -right-4 sm:-right-8 z-20 glass-header px-4 py-2.5 rounded-2xl border border-[var(--border-color)] shadow-xl flex items-center gap-3 backdrop-blur-md"
-              >
-                <div className="p-2 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-md shadow-emerald-500/30">
-                  <Activity className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-xs font-extrabold text-[var(--text-primary)] block leading-tight">
-                    99.9% Live SLA
-                  </span>
-                  <span className="text-[10px] text-[var(--text-secondary)] font-semibold block">
-                    High Throughput APIs
-                  </span>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
