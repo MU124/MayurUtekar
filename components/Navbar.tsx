@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useTheme } from "@/app/providers";
-import { Sun, Moon, Menu, X, Code2, ArrowUpRight } from "lucide-react";
+import { Sun, Moon, Menu, X, ArrowUpRight } from "lucide-react";
 import { personalDetails } from "@/data/portfolioData";
 
 export default function Navbar() {
@@ -36,16 +37,22 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand Logo & Avatar */}
         <a
           href="#"
-          className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-1"
+          className="flex items-center gap-3 group focus:outline-none rounded-lg p-1"
         >
-          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-            <Code2 className="w-5.5 h-5.5" />
+          <div className="relative w-10 h-10 rounded-xl overflow-hidden ring-2 ring-blue-500/40 group-hover:scale-105 transition-transform shrink-0">
+            <Image
+              src="/mayur.png"
+              alt="Mayur Utekar Profile Avatar"
+              fill
+              sizes="40px"
+              className="object-cover object-top"
+            />
           </div>
           <div>
-            <span className="font-bold text-lg tracking-tight text-[var(--text-primary)] block leading-tight">
+            <span className="font-bold text-base tracking-tight text-[var(--text-primary)] block leading-tight">
               Mayur Utekar
             </span>
             <span className="text-xs text-[var(--text-secondary)] block">
