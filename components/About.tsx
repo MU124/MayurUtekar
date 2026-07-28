@@ -79,20 +79,22 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          className="mt-8 flex flex-col md:flex-row items-center justify-center gap-3"
         >
-          <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider mr-2">
+          <span className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider shrink-0 text-center">
             Domains Served:
           </span>
-          {industriesData.map((ind) => (
-            <div
-              key={ind.id}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-bold text-[var(--text-primary)] shadow-2xs"
-            >
-              {getIndustryIcon(ind.icon)}
-              {ind.name}
-            </div>
-          ))}
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
+            {industriesData.map((ind) => (
+              <div
+                key={ind.id}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-xs font-bold text-[var(--text-primary)] shadow-2xs hover:border-blue-500 transition-colors"
+              >
+                {getIndustryIcon(ind.icon)}
+                <span>{ind.name}</span>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
