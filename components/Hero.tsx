@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Briefcase, FileCode2, MapPin, Award, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Briefcase, FileCode2, MapPin, ShieldCheck, Sparkles, Code2 } from "lucide-react";
 import { personalDetails } from "@/data/portfolioData";
 
 export default function Hero() {
@@ -97,45 +97,68 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Profile Photo Avatar Card */}
+          {/* Seamless Cutout Portrait (No Box Container) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 flex justify-center lg:justify-end"
+            className="lg:col-span-5 flex justify-center items-center relative"
           >
-            <div className="relative group w-full max-w-sm">
-              {/* Decorative Card Glow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-40 transition duration-500 pointer-events-none" />
+            <div className="relative w-full max-w-md flex items-center justify-center">
+              {/* Soft Ambient Radial Glow Behind Cutout */}
+              <div className="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-blue-500/25 via-indigo-500/20 to-sky-400/25 blur-3xl pointer-events-none -z-10" />
 
-              <div className="relative custom-card p-4 overflow-hidden rounded-3xl bg-[var(--bg-card)] border border-[var(--border-color)] shadow-xl">
-                <div className="relative aspect-4/5 w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800">
-                  <Image
-                    src="/mayur.png"
-                    alt="Mayur Rajendra Utekar - Senior Full Stack Engineer"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    priority
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-
-                {/* Floating Badge Overlay */}
-                <div className="absolute bottom-6 left-6 right-6 p-3.5 rounded-2xl glass-header border border-white/20 dark:border-slate-700/50 shadow-lg flex items-center justify-between">
-                  <div>
-                    <h3 className="text-sm font-extrabold text-[var(--text-primary)] leading-tight">
-                      Mayur R. Utekar
-                    </h3>
-                    <p className="text-[11px] font-semibold text-[var(--brand-primary)]">
-                      Senior Full Stack Engineer
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 text-xs font-bold shrink-0">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    8+ Yrs
-                  </div>
-                </div>
+              {/* Transparent Portrait Cutout */}
+              <div className="relative z-10">
+                <Image
+                  src="/Mayur Utekar.png"
+                  alt="Mayur Rajendra Utekar - Senior Full Stack Engineer"
+                  width={440}
+                  height={540}
+                  priority
+                  className="object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500 max-h-[460px] w-auto"
+                />
               </div>
+
+              {/* Floating Badge - Top Right */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="absolute top-4 -right-2 sm:right-2 z-20 glass-header px-4 py-2 rounded-2xl border border-[var(--border-color)] shadow-xl flex items-center gap-2.5"
+              >
+                <div className="p-2 rounded-xl bg-blue-500 text-white shadow-md shadow-blue-500/30">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-[var(--text-primary)] block leading-tight">
+                    8+ Years
+                  </span>
+                  <span className="text-[10px] text-[var(--text-secondary)] block">
+                    Enterprise Exp.
+                  </span>
+                </div>
+              </motion.div>
+
+              {/* Floating Badge - Bottom Left */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="absolute bottom-6 -left-2 sm:left-2 z-20 glass-header px-4 py-2.5 rounded-2xl border border-[var(--border-color)] shadow-xl flex items-center gap-2.5"
+              >
+                <div className="p-2 rounded-xl bg-indigo-600 text-white shadow-md shadow-indigo-500/30">
+                  <Code2 className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-[var(--text-primary)] block leading-tight">
+                    Full Stack Lead
+                  </span>
+                  <span className="text-[10px] text-[var(--text-secondary)] block">
+                    ASP.NET & SQL
+                  </span>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
