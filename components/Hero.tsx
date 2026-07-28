@@ -118,7 +118,7 @@ export default function Hero() {
                 }}
               >
                 <Image
-                  src="/Mayur Utekar.png"
+                  src="/Mayur Utekar.webp"
                   alt="Mayur Rajendra Utekar - Senior Full Stack Engineer"
                   width={460}
                   height={560}
